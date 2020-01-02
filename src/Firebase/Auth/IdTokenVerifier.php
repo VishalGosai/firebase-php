@@ -127,6 +127,10 @@ final class IdTokenVerifier implements Verifier
             return $token;
         }
 
+        if ($token instanceof IdToken) {
+            $token = $token->toString();
+        }
+
         if (\is_object($token) && !\method_exists($token, '__toString')) {
             throw new InvalidArgumentException('The given token is an object and cannot be cast to a string');
         }

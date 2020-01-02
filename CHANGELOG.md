@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## Unreleased
+
+### Auth
+
+* Added ability to authenticate users
+  * `Kreait\Firebase\Auth::signInAnonymously()`
+  * `Kreait\Firebase\Auth::signInWithCustomToken($customToken)`
+  * `Kreait\Firebase\Auth::signInWithEmailAndPassword($email, $clearTextPassword)`
+  * `Kreait\Firebase\Auth::signInWithRefreshToken($refreshToken)`
+  
+### Deprecations
+
+* `Kreait\Firebase\Auth::getApiClient()`
+* `Kreait\Firebase\Auth::linkProviderThroughAccessToken()`
+* `Kreait\Firebase\Auth::linkProviderThroughIdToken()`
+* `Kreait\Firebase\Auth\ApiClient::exchangeCustomTokenForIdAndRefreshToken()`
+* `Kreait\Firebase\Auth\ApiClient::linkProviderThroughAccessToken()`
+* `Kreait\Firebase\Auth\ApiClient::linkProviderThroughIdToken()`
+* `Kreait\Firebase\Auth\LinkedProviderData`
+
 ## 4.40.1 - 2020-02-29
 
 * It was not possible to discover Service Accounts stored as JSON string in an environment variable.

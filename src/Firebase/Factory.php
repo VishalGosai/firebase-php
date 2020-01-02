@@ -249,8 +249,9 @@ class Factory
         $keyStore = new HttpKeyStore(new Client(), $this->verifierCache ?: new InMemoryCache());
         $baseVerifier = new Verifier($serviceAccount->getSanitizedProjectId(), $keyStore);
         $idTokenVerifier = new Firebase\Auth\IdTokenVerifier($baseVerifier, $this->clock);
+        $signInHandler = new Firebase\Auth\SignIn\GuzzleHandler($http, $this->clock);
 
-        return new Auth($apiClient, $customTokenGenerator, $idTokenVerifier);
+        return new Auth($apiClient, $customTokenGenerator, $idTokenVerifier, $signInHandler);
     }
 
     public function createCustomTokenGenerator(): Generator
